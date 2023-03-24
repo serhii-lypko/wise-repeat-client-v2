@@ -1,27 +1,37 @@
 import { useState } from "react";
-// import { WordPair as WordPairType } from '#/types/types';
-import clsx from "clsx";
-import axios from "axios";
+import { WordPair as WordPairType, BlindSide } from "@/types/types";
+// import clsx from "clsx";
 
-// type Props = {
-//   pair: WordPairType;
-//   blind: 'eng' | 'ru' | 'rand' | 'none';
-// };
+type Props = {
+  pair: WordPairType;
+  blindSide?: BlindSide; // TODO: enum?
+};
 
-export default function WordPair({ pair }: any) {
+export default function WordPair({ pair, blindSide = "ru" }: Props) {
   const [revealed, toggleRevealed] = useState(false);
+
+  const blindOppositionMap = {
+    eng: "ru",
+    ru: "eng",
+  };
+
+  const currentVisibleSide = blindOppositionMap[blindSide];
+  const currentBlindSide = blindOppositionMap[currentVisibleSide as BlindSide];
 
   const toggleVisibility = () => {
     toggleRevealed((revealed) => !revealed);
   };
 
+  // TODO: fix casting
   return (
     <div onClick={toggleVisibility} className="w-full">
       <span className="text-md">
         {!revealed ? (
-          pair.eng
+          pair[currentVisibleSide as BlindSide]
         ) : (
-          <span style={{ color: "#0284c7" }}>{pair.ru}</span>
+          <span className="text-sky-700">
+            {pair[currentBlindSide as BlindSide]}
+          </span>
         )}
       </span>
     </div>

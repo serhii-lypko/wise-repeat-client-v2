@@ -5,11 +5,11 @@ import WordsList from "@/components/words-list";
 import { shuffle } from "@/utils";
 import { getWordPairs } from "@/lib/api";
 
-export default function Home({ data }: any) {
+export default function Ru({ data }: any) {
   return (
     <>
       <main>
-        <WordsList wordPairs={data} />
+        <WordsList wordPairs={data} blind="eng" />
       </main>
     </>
   );

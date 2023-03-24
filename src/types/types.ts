@@ -4,3 +4,5 @@ export type WordPair = {
   ru: string;
   isLearned: boolean;
 };
+
+export type BlindSide = "eng" | "ru";
