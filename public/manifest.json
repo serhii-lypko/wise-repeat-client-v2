@@ -1,0 +1,17 @@
+{
+  "name": "Wise Repeat",
+  "short_name": "Wise Repeat",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/src",
+  "start_url": "/src",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any"
+    }
+  ],
+  "splash_pages": null
+}
