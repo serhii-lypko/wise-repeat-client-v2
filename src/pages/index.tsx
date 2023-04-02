@@ -1,5 +1,4 @@
-import Head from "next/head";
-
+// import Head from "next/head";
 import WordsList from "@/components/words-list";
 
 import { shuffle } from "@/utils";
